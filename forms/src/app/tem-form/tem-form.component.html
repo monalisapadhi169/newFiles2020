@@ -1,0 +1,37 @@
+
+<!-- template driven form with validation -->
+
+<div class="container">
+    <div class="col-md-6 offset-4 mt-5 mb-5 card card-body">
+
+        <form action="" #form="ngForm" (ngSubmit)="loginForm(form)">
+            <h3 style="color: blue; text-align: center;">LoginForm</h3>
+
+            <div class="form-group">
+                <input type="text" name="email" class="form-control" placeholder="Enter Email" #email="ngModel" ngModel
+                    required>
+                <div *ngIf=' email.touched && email.invalid'>
+                    <div *ngIf="email.errors.required" class="validation">
+                        <p class="alert text-danger">*This field is mandotory</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" name="password" class="form-control" placeholder="Enter Password"
+                        #password="ngModel" ngModel required minlength="5">
+                    <div *ngIf='password.touched && password.invalid'>
+                        <div *ngIf="password.errors.minlength" class="value">
+                            <p class="alert text-danger">*This password is invalid</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div> 
+</div>       

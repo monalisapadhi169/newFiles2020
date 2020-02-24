@@ -1,0 +1,30 @@
+<div class="container">
+
+  <form action="" class="col-md-6 offse mt-5 md-3 card card-body" [formGroup]='empform'>
+    <input type="text" name="empName" placeholder="Enter EmpName" formControlName="empName" id="empName"
+      class="formControl mb-3">
+    <input type="text" name="empAge" placeholder="Enter Age" formControlName="empAge" id="empAge"
+      class="formControl mb-3">
+
+    <div>
+      Skills:-
+      <button type="button" class="btn btn-outline-primary" (click)='addSkills()'>Add Skills</button>
+    </div>
+
+    <div formArrayName='empSkills' *ngFor='let group of empForm.get("empSkills")' .controls; index as i>
+
+      <div [formGroupName]='i'>
+        <input type="text" name="skills" id="{{'skills' + i}}" placeholder="Skills Name" class="form-control mb-3"
+          formControlName='skills'>
+        <input type="radio" formControlName='proficiency' value="beginner">Beginner
+        <input type="radio" formControlName='proficiency' value="intermediate">Intermediate
+        <input type="radio" formControlName='proficiency' value="Expert">Expert
+      </div>
+      <button class="btn btn-warning" (click)="removeSkill(i)">X</button>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+
+</div>

@@ -1,0 +1,30 @@
+<div class="container">
+<form action="" class="col-md-4 offset-4 mt-4 mb-4 card card-body" [formGroup]= 'loginform' (ngSubmit)='loginform()'>
+
+    <div class="form-group">
+        <input type="text" class="formControl" placeholder="Enter Email" formControlName="email" required>
+        <div *ngIf= "email.touched && email.invalid">
+            <div *ngIf="email.errors.required" class="emailvalidation"></div>
+            <p class="alert text-danger" style="font-size: x-small;">*This field is mandatory </p>
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input type="text" class="formControl" placeholder="Enter Password" formControlName="password" required>
+        <div *ngIf= "password.touched && password.invalid">
+            <div *ngIf="password.errors.required" class="passwordvalidation">
+            <p class="alert text-danger" style="font-size:x-small;">*Password is invalid</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-outline-primary">Submit</button>
+
+    </div>
+    </form>
+
+</div>
+
